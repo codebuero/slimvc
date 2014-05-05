@@ -1,0 +1,21 @@
+{
+    "name": "zacao/slim-mvc-skeleton",
+    "description": "Sample skeleton project for slim framwork with MVC",
+    "version": "0.1.0",
+    "license":"MIT",
+    "autoload": {
+        "psr-4": {
+            "": [
+                "app/controllers",
+                "app/models",
+                "app/middlewares"
+            ],
+            "MyNamespace\\": "lib/"
+        }
+    },
+    "require": {
+        "slim/slim": "2.*"
+    },
+    "require-dev": {
+    }
+}

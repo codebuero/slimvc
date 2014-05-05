@@ -1,20 +1,30 @@
-# Slim-MVC-Skeleton #
+# Slim MVC Skeleton #
 This is a skeleton project for using MVC pattern with the [Slim Framework](http://www.slimframework.com/). 
 
-# Install
-[Composer](http://getcomposer.com/) install,
-```json
-{
-    "require": {
-        "zacao/slim-mvc": "dev-master"
-    }
-}
+## Install Composer
+
+If you have not installed Composer, install it as following, 
+<http://getcomposer.org/doc/00-intro.md#installation>
+
+## Install the Application
+
+After you install Composer, run below command from the directory in which you want to install.
+
+(assumed you install composer as /usr/bin/composer globally, or please replace `composer` with `php composer.phar`),
+
+```bash
+  composer create-project -s dev zacao/slim-mvc [app-name]
 ```
-*OR*
 
-download the [latest code package](https://github.com/zacao/slim-mvc/archive/master.zip) from github directly to your local machine
+Replace `[app-name]` with the directory name of your new application, and then do as below steps:
+* Set your virtual host document root to the `public/` directory.
+* Ensure folders under `var/` directory are writeable for your web server user, such as log, cache, and temp.
 
-# Folder Structure
+**OR**
+
+your can download the [latest code package](https://github.com/zacao/slim-mvc/archive/master.zip) from github directly to your local machine
+
+## Folder Structure
  * app
    * controllers - controller classes
    * models - model classes
@@ -26,9 +36,9 @@ download the [latest code package](https://github.com/zacao/slim-mvc/archive/mas
  * public - document root & the public assetic files, such as images, css and js
  * var - writable folder, such as log, cache, temp and so on
 
-## app
+### app
 Here should be the main folder which stores your own codes, such as controllers, models, views, middlewares and so on.
-### routers
+#### routers
 Slim routes group by feature, and names in *<feature_name>.router.php* format. 
 differenct with the [Slim official example](http://docs.slimframework.com/#Routing-Overview), we using `<class_name>:<method_name>` like format string to define a router, against with uing Clouse in Slim officical doc.
 
@@ -37,7 +47,7 @@ differenct with the [Slim official example](http://docs.slimframework.com/#Routi
 $app->get('/article/:id', 'ArticleController:get');
 $app->delete('/article/:id', 'ArticleController:delete');
 ```
-### controllers
+#### controllers
 Stores controller classes files which defined in router. It MUST be one class per file, and the filename should be same as the controller class name.
 
 `IndexController.php`
@@ -55,7 +65,7 @@ class IndexController extends ControllerAbstract
     }
 }
 ```
-### etc
+#### etc
 As the Slim configurate format, please refer to the original [Slim configuration doc](http://docs.slimframework.com/#Configuration-Overview)
 
 `config.php`
@@ -73,9 +83,9 @@ return array(
     ),
 );
 ```
-### middlewares
+#### middlewares
 About the standard Slim middleware classes, Please refer to the original [Slim middleware doc](http://docs.slimframework.com/#Middleware-Overview)
-### models
+#### models
 The model classes should be here. You can implement the model classes with any technology as you like.
 
 `ArticleModel.php`
@@ -91,10 +101,10 @@ class ArticleModel extends ModelAbstract
     }
 }
 ```
-### views
+#### views
 Template files in default Slim format, Please refer to the original [Slim middleware doc](http://docs.slimframework.com/#View-Overview)
 
-## lib
+### lib
 Put your customize classes files here, in this sample, we using PSR-4 as autoloading standard, please refer to `composer.json` and files under `lib` folder for detail.
 
 `composer.json`
@@ -134,8 +144,8 @@ abstract class ControllerAbstract
     }
 }
 ```
-## public
+### public
 Here is the *document root* (`.haccess` & `index.php`) and repository for public static assets, such as images, css and javascripts 
 
-## var
+### var
 Location for writable entires, such as logs, caches and temporary files

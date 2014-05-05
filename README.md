@@ -6,7 +6,7 @@ This is a skeleton project for using MVC pattern with the [Slim Framework](http:
 ```json
 {
     "require": {
-        "slim-extensions/mvc": "dev-master"
+        "zacao/slim-mvc": "dev-master"
     }
 }
 ```

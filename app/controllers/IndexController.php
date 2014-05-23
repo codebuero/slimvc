@@ -1,7 +1,7 @@
 <?php
-use MyNamespace\Core\ControllerAbstract;
+use Slimvc\Core\Controller;
 
-class IndexController extends ControllerAbstract
+class IndexController extends Controller
 {
     public function index()
     {

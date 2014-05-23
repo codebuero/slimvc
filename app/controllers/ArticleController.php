@@ -1,7 +1,7 @@
 <?php
-use MyNamespace\Core\ControllerAbstract;
+use Slimvc\Core\Controller;
 
-class ArticleController extends ControllerAbstract
+class ArticleController extends Controller
 {
     public function get($id)
     {

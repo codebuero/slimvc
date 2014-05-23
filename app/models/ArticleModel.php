@@ -1,7 +1,7 @@
 <?php
-use MyNamespace\Core\ModelAbstract;
+use Slimvc\Core\Model;
 
-class ArticleModel extends ModelAbstract
+class ArticleModel extends Model
 {
     public function getById($id)
     {

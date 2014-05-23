@@ -1,5 +1,5 @@
-# Slim MVC Skeleton #
-This is a skeleton project for using MVC pattern with the [Slim Framework](http://www.slimframework.com/). 
+# Slim in MVC #
+This is a project about MVC Skeleton/Boilerplate for the [Slim Framework](http://www.slimframework.com/). 
 
 ## Install Composer
 
@@ -38,6 +38,7 @@ your can download the [latest code package](https://github.com/zacao/slim-mvc/ar
 
 ### app
 Here should be the main folder which stores your own codes, such as controllers, models, views, middlewares and so on.
+
 #### routers
 Slim routes group by feature, and names in *<feature_name>.router.php* format. 
 differenct with the [Slim official example](http://docs.slimframework.com/#Routing-Overview), we using `<class_name>:<method_name>` like format string to define a router, against with uing Clouse in Slim officical doc.
@@ -47,12 +48,21 @@ differenct with the [Slim official example](http://docs.slimframework.com/#Routi
 $app->get('/article/:id', 'ArticleController:get');
 $app->delete('/article/:id', 'ArticleController:delete');
 ```
+
+> 1. router files are loaded & sorted in alphanumeric order, you can priority routers by proper file names, such as,
+     0.default.router.php, 1.products.router.php (Thanks [Wout's comments](https://github.com/zacao/slim-mvc/issues/1) here)
+
+> 2. you can also call contollers with namespace specified, e.g.
+  ```php
+  $app->get('/admin/article/:id', 'Admin\ArticleController:get');
+  ```
+
 #### controllers
 Stores controller classes files which defined in router. It MUST be one class per file, and the filename should be same as the controller class name.
 
 `IndexController.php`
 ```php
-class IndexController extends ControllerAbstract
+class IndexController extends Controller
 {
     public function index()
     {
@@ -65,6 +75,7 @@ class IndexController extends ControllerAbstract
     }
 }
 ```
+
 #### etc
 As the Slim configurate format, please refer to the original [Slim configuration doc](http://docs.slimframework.com/#Configuration-Overview)
 
@@ -83,14 +94,16 @@ return array(
     ),
 );
 ```
+
 #### middlewares
 About the standard Slim middleware classes, Please refer to the original [Slim middleware doc](http://docs.slimframework.com/#Middleware-Overview)
+
 #### models
-The model classes should be here. You can implement the model classes with any technology as you like.
+The model classes should be here. You can implement the model classes as you like.
 
 `ArticleModel.php`
 ```php
-class ArticleModel extends ModelAbstract
+class ArticleModel extends Model
 {
     public function delete($id)
     {
@@ -101,6 +114,7 @@ class ArticleModel extends ModelAbstract
     }
 }
 ```
+
 #### views
 Template files in default Slim format, Please refer to the original [Slim middleware doc](http://docs.slimframework.com/#View-Overview)
 
@@ -116,21 +130,23 @@ Put your customize classes files here, in this sample, we using PSR-4 as autoloa
             "app/models",
             "app/middlewares"
         ],
-        "MyNamespace\\": "lib/"
+        "Slimvc\\": "lib/Slimvc"
     }
 }
 ```
-There are MyNamespace\Core\ControllerAbstract & MyNamespace\Core\ModelAbstract created under the lib folder for demonstration.
+There are Slimvc\Core\Controller, Slimvc\Core\Model sample classes created under the lib folder.
 
-`ControllerAbstract.php`
+`Controller.php`
 ```php
-namespace MyNamespace\Core;
+namespace Slimvc\Core;
 
-abstract class ControllerAbstract
+abstract class Controller
 {
+    protected $appname = "default";
+
     protected function getApp()
     {
-        return \Slim\Slim::getInstance();
+        return \Slim\Slim::getInstance($this->appname);
     }
 
     protected function getConfig()
@@ -145,7 +161,13 @@ abstract class ControllerAbstract
 }
 ```
 ### public
-Here is the *document root* (`.haccess` & `index.php`) and repository for public static assets, such as images, css and javascripts 
+Here is the *document root* (`.htaccess` & `index.php`) and repository for public static assets, such as images, css and javascripts 
 
 ### var
 Location for writable entires, such as logs, caches and temporary files
+
+## Packagist
+<https://packagist.org/packages/zacao/slim-mvc>
+
+## License
+This project is released under the MIT public license.

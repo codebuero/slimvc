@@ -1,6 +1,6 @@
 {
     "name": "zacao/slim-mvc",
-    "description": "MVC skeleton/boilerplate for the Slim framework",
+    "description": "MVC Skeleton/Boilerplate for the Slim framework",
     "keywords": ["microframework", "slim", "rest", "mvc", "router", "skeleton", "boilerplate"],
     "version": "0.2.0",
     "type": "project",

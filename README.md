@@ -41,7 +41,7 @@ Here should be the main folder which stores your own codes, such as controllers,
 
 #### routers
 Slim routes group by feature, and names in *<feature_name>.router.php* format. 
-differenct with the [Slim official example](http://docs.slimframework.com/#Routing-Overview), we using `<class_name>:<method_name>` like format string to define a router, against with uing Clouse in Slim officical doc.
+differenct with the [Slim official example](http://docs.slimframework.com/#Routing-Overview), we using `<optional-namespace>\<class_name>:<method_name>` format to define a router, against with uing Clouse in Slim official doc.
 
 `article.router.php`
 ```php

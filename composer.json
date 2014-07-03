@@ -2,7 +2,6 @@
     "name": "zacao/slimvc",
     "description": "MVC Skeleton/Boilerplate for the Slim framework",
     "keywords": ["microframework", "slim", "mvc", "slimvc", "slim-mvc", "rest", "router", "skeleton", "boilerplate"],
-    "version": "1.0.0",
     "type": "project",
     "homepage": "https://github.com/zacao/slimvc",
     "license":"MIT",
@@ -21,5 +20,10 @@
         "slim/slim": "2.*"
     },
     "require-dev": {
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
     }
 }

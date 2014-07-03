@@ -116,3 +116,51 @@ function in_arrayi($needle, $haystack)
     }
     return in_array(strtolower($needle), $haystack);
 }
+
+
+/**
+ * Convert array value to xml format
+ *
+ * @param array  $data         the array to be converted
+ * @param string $startElement the root xml element
+ * @param string $xml_version  the xml doc version
+ * @param string $xml_encoding the xml encoding
+ *
+ * @return boolean|string
+ */
+function array2xml(array $data, $startElement = 'xml', $xml_version = '1.0', $xml_encoding = 'UTF-8')
+{
+    if (! is_array($data)) {
+        return false; // return false error occurred
+    }
+    $xml = new \XmlWriter();
+    $xml->openMemory();
+    $xml->startDocument($xml_version, $xml_encoding);
+    $xml->startElement($startElement);
+
+    write_xml($xml, $data);
+    // write end element
+    $xml->endElement();
+
+    // Return the XML results
+    return $xml->outputMemory(true);
+}
+
+/**
+ * Write XML as per Associative Array
+ *
+ * @param object $xml XMLWriter Object
+ * @param array $data Associative Data Array
+ */
+function write_xml(\XMLWriter $xml, $data)
+{
+    foreach ($data as $key => $value) {
+        if (is_array($value)) {
+            $xml->startElement($key);
+            write_xml($xml, $value);
+            $xml->endElement();
+            continue;
+        }
+        $xml->writeElement($key, $value);
+    }
+}

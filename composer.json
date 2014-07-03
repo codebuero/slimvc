@@ -1,10 +1,10 @@
 {
-    "name": "zacao/slim-mvc",
+    "name": "zacao/slimvc",
     "description": "MVC Skeleton/Boilerplate for the Slim framework",
-    "keywords": ["microframework", "slim", "rest", "mvc", "router", "skeleton", "boilerplate"],
-    "version": "0.2.0",
+    "keywords": ["microframework", "slim", "mvc", "slimvc", "slim-mvc", "rest", "router", "skeleton", "boilerplate"],
+    "version": "1.0.0",
     "type": "project",
-    "homepage": "https://github.com/zacao/slim-mvc",
+    "homepage": "https://github.com/zacao/slimvc",
     "license":"MIT",
     "autoload": {
         "psr-4": {

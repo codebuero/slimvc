@@ -13,7 +13,7 @@ After you install Composer, run below command from the directory in which you wa
 (assumed you install composer as /usr/bin/composer globally, or please replace `composer` with `php composer.phar`),
 
 ```bash
-  composer create-project -s dev zacao/slim-mvc [app-name]
+  composer create-project zacao/slimvc [app-name]
 ```
 
 Replace `[app-name]` with the directory name of your new application, and then do as below steps:
@@ -22,7 +22,7 @@ Replace `[app-name]` with the directory name of your new application, and then d
 
 **OR**
 
-your can download the [latest code package](https://github.com/zacao/slim-mvc/archive/master.zip) from github directly to your local machine
+your can download the [latest code package](https://github.com/zacao/slimvc/archive/master.zip) from github directly to your local machine
 
 ## Folder Structure
  * app
@@ -50,7 +50,7 @@ $app->delete('/article/:id', 'ArticleController:delete');
 ```
 
 > 1. router files are loaded & sorted in alphanumeric order, you can priority routers by proper file names, such as,
-     0.default.router.php, 1.products.router.php (Thanks [Wout's comments](https://github.com/zacao/slim-mvc/issues/1) here)
+     0.default.router.php, 1.products.router.php (Thanks [Wout's comments](https://github.com/zacao/slimvc/issues/1) here)
 
 > 2. you can also call contollers with namespace specified, e.g.
   ```php
@@ -167,7 +167,7 @@ Here is the *document root* (`.htaccess` & `index.php`) and repository for publi
 Location for writable entires, such as logs, caches and temporary files
 
 ## Packagist
-<https://packagist.org/packages/zacao/slim-mvc>
+<https://packagist.org/packages/zacao/slimvc>
 
 ## License
 This project is released under the MIT public license.

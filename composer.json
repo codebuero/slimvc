@@ -1,7 +1,7 @@
 {
     "name": "zacao/slimvc",
-    "description": "MVC Skeleton/Boilerplate for the Slim framework",
-    "keywords": ["microframework", "slim", "mvc", "slimvc", "slim-mvc", "rest", "router", "skeleton", "boilerplate"],
+    "description": "PHP Slim MVC Skeleton/Boilerplate Project",
+    "keywords": ["slim", "mvc", "slimvc", "slim-mvc", "slimmvc", "router", "skeleton", "boilerplate"],
     "type": "project",
     "homepage": "https://github.com/zacao/slimvc",
     "license":"MIT",

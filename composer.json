@@ -17,7 +17,8 @@
         "files": ["lib/Slimvc/Core/functions.php"]
     },
     "require": {
-        "slim/slim": "2.*"
+        "slim/slim": "2.*",
+        "slim/views": "*"
     },
     "require-dev": {
     },
